@@ -163,17 +163,17 @@ def sendsms(smsMessage):
     playsound(audio_file)
     global last_sms_sent_time
 
-    account_sid = "AC321acc9f98a3b127b87630b0f8cd21f1"
-    auth_token = "3eec86291e5e76a99fd7ee3b4345b7a8"
+    account_sid = ""
+    auth_token = ""
     client = Client(account_sid, auth_token)
     timedifference = 0
     if last_sms_sent_time != 0:
         timedifference = (datetime.now() - last_sms_sent_time).total_seconds() / 60.0
     if timedifference > time_difference_for_sms_sent or last_sms_sent_time == 0:
         message = client.messages.create(
-            messaging_service_sid='MGd65adbac45b5e6b704dd05b8357a14ae',
+            messaging_service_sid='',
             body=smsMessage,
-            to='+917238045397'
+            to='+91'
         )
         print(message.sid)
         last_sms_sent_time = datetime.now()
